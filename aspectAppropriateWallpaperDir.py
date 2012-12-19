@@ -3,27 +3,40 @@ import ctypes
 import time
 import os
 import random, math
-
-##import ctypes
-##user32 = ctypes.windll.user32
-##screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
+from PIL import Image
 
 SPI_SETDESKWALLPAPER = 20
-##landscapeImage="C:\Users\jmcglynn\Pictures\Desktop Backgrounds\DTBG\Landscape\Landscape.jpg"
-##portraitImage="C:\Users\jmcglynn\Pictures\Desktop Backgrounds\DTBG\Portrait\Portrait.jpg"
 
-landscapeDir="C:\Users\jmcglynn\Pictures\Desktop Backgrounds\DTBG\Landscape"
-portraitDir="C:\Users\jmcglynn\Pictures\Desktop Backgrounds\DTBG\Portrait"
+##landscapeDir="C:\Users\jmcglynn\Pictures\Desktop Backgrounds\DTBG\Landscape"
+##portraitDir="C:\Users\jmcglynn\Pictures\Desktop Backgrounds\DTBG\Portrait"
 
-landscapeDirContents=os.listdir(landscapeDir)
-portraitDirContents=os.listdir(portraitDir)
+def getdir():
+    return "C:\Users\jmcglynn\Pictures\Desktop Backgrounds\DTBG"
+directory=getdir()
+
+def imgExtCheck(path):
+    return True
+
+##landscapeDirContents=os.listdir(landscapeDir)
+##portraitDirContents=os.listdir(portraitDir)
+dirContents=os.listdir(directory)
 
 landscapeList=[]
 portraitList=[]
+tol=0.15
 
-for item in landscapeDirContents:
-    if os.path.isfile(landscapeDir+"\\"+item):
-        landscapeList.append(landscapeDir+"\\"+item)
+screen_dim1=GetSystemMetrics (0)
+screen_dim2=GetSystemMetrics (1)
+screen_change=(screen_dim1+screen_dim2)/2
+
+for item in dirContents:
+    item_path=directory+"\\"+item
+    if os.path.isfile(item_path):
+        if imgExtCheck(item_path):
+            im = Image.open(item_path)
+            asRat = float(im.size[0])/float(im.size[1])
+            if asRat>=(1-tol)*
+            landscapeList.append(landscapeDir+"\\"+item)
     else:pass
 
 for item in portraitDirContents:
@@ -43,9 +56,7 @@ cli=landscapeList[lc]
 cpi=portraitList[pc]
 
 
-initialWidth=GetSystemMetrics (0)
-otherWidth=GetSystemMetrics (1)
-screenChange=(initialWidth+otherWidth)/2
+
 
 #print initialWidth, lll
 
