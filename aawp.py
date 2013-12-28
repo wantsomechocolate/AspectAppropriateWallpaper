@@ -1,4 +1,10 @@
 ## Change your own settings from the control panel (tile,fit,etc)
+## I just discovered a bug that happens when you let the program start
+## running while in portraint mode. It starts cylcing through all
+## AA wallpapers. When changed back to landscape it stops cycling,
+## but if changed back to portrait it continues the behavior.
+## When started in landscape mode, everything is fine. 
+
 ## Change line 15 to the directory of your images. 
 ## Have a nice day. 
 
